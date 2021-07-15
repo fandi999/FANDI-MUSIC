@@ -1,4 +1,4 @@
-<h1 align="centre">🎵 FANDI MUSIC 🎵</h1>
+<h1 align="centre">🎵FANDI MUSIC🎵</h1>
 
 ### A bot that can play music on Telegram Group and Channel Voice Chats
 #### POWERED BY [PYTGCALLS](https://github.com/pytgcalls/pytgcalls)
@@ -24,7 +24,7 @@
 ### ⚔ Self-hosting (For Devs) 
 ```sh
 # Install Git First (apt-instll git)
-$ git clone https://github.com/vckyou/Geez-MusicProject
+$ git clone https://github.com/fandi999-FANDI-MUSIC
 $ cd Geez-MusicProject
 # Upgrade sources
 # Install All Requirements 
