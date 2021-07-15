@@ -57,7 +57,7 @@ DAN JANGAN GALAU YA NGENTODD!!!
                         "🎈 Group Support", url=f"https://t.me/{SUPPORT_GROUP}")
                 ],[
                     InlineKeyboardButton(
-                        "🛠 Source Code 🛠'", url=f"https://{SOURCE_CODE}")])
+                        "📌 GRUP MUTUALAN'", url=f"https://t.me/joinchat/xgUPNTiHr7UxNWE1")
                 ],[
                     InlineKeyboardButton(
                         "🎗️OWNER GANTENG", url=f"https://t.me/kemeemm")
