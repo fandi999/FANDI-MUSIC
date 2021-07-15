@@ -38,7 +38,7 @@ Saya Memiliki Banyak Fitur Seperti :
 
 📌 Special Thanks To : {OWNER}
 
-Ingin Menambahkan Saya ke Grup Anda? Tambahkan Saya Ke Group Anda!=f"https://telegra.ph/file/7d1e7ec948e9119618f4f.jpg)]
+Ingin Menambahkan Saya ke Grup Anda? Tambahkan Saya Ke Group Anda! {"https://telegra.ph/file/7d1e7ec948e9119618f4f.jpg}
 </b>""",
 
 # Edit Yang Seharusnya Lu Edit Aja:D
@@ -51,15 +51,15 @@ Ingin Menambahkan Saya ke Grup Anda? Tambahkan Saya Ke Group Anda!=f"https://tel
                         "➕ Tambahkan saya ke Grup Anda ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
                 [
                     InlineKeyboardButton(
-                        "💬 Channel Updates", url=f"https://t.me/{UPDATES_CHANNEL}"), 
+                        "💬 Channel Quote", url=f"https://t.me/{UPDATES_CHANNEL}"), 
                     InlineKeyboardButton(
                         "🎈 Group Support", url=f"https://t.me/{SUPPORT_GROUP}")
                 ],[
                     InlineKeyboardButton(
-                        "🛠 Source Code 🛠", url=f"https://{SOURCE_CODE}")
+                        "📌GRUP MUTUALAN", url=f"https://t.me/joinchat/xgUPNTiHr7UxNWE1")
                 ],[
                     InlineKeyboardButton(
-                        "🎁 Donate", url=f"https://t.me/kemeemm")
+                        "🎗️OWNER GANTENG", url=f"https://t.me/kemeemm")
                 ]
             ]
         ),
