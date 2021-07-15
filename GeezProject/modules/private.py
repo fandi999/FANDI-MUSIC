@@ -28,7 +28,7 @@ logging.basicConfig(level=logging.INFO)
 )
 async def start_(client: Client, message: Message):
     await message.reply_text(
-        f"""<b>Haii {message.from_user.first_name} saya adalah {PROJECT_NAME}\n
+        f"""<b>Haii {message.from_user.first_name} saya adalah {PROJECT_NAME}\n (https://telegra.ph/file/7d1e7ec948e9119618f4f.jpg)
 Saya Adalah Bot Music Group, Yang dapat Memutar Lagu di Voice Chat Group Anda Dengan Mudah
 Saya Memiliki Banyak Fitur Seperti :
 • Memutar Musik.
