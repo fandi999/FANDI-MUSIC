@@ -28,7 +28,7 @@ logging.basicConfig(level=logging.INFO)
 )
 async def start_(client: Client, message: Message):
     await message.reply_text(
-        f"""<b>Haii {message.from_user.first_name} saya adalah {PROJECT_NAME}\n (https://telegra.ph/file/7d1e7ec948e9119618f4f.jpg)
+        f"""<b>Haii {message.from_user.first_name} saya adalah {PROJECT_NAME}\n
 Saya Adalah Bot Music Group, Yang dapat Memutar Lagu di Voice Chat Group Anda Dengan Mudah
 Saya Memiliki Banyak Fitur Seperti :
 • Memutar Musik.
@@ -38,7 +38,7 @@ Saya Memiliki Banyak Fitur Seperti :
 
 📌 Special Thanks To : {OWNER}
 
-Ingin Menambahkan Saya ke Grup Anda? Tambahkan Saya Ke Group Anda!
+Ingin Menambahkan Saya ke Grup Anda? Tambahkan Saya Ke Group Anda!(https://telegra.ph/file/7d1e7ec948e9119618f4f.jpg)
 </b>""",
 
 # Edit Yang Seharusnya Lu Edit Aja:D
