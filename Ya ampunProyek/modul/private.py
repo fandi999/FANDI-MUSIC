@@ -59,7 +59,7 @@ Ingin Menambahkan Saya ke Grup Anda? Tambahkan Saya Ke Group Anda!
                         "🛠 Source Code 🛠", url=f"https://https://github.com/fandi999/FANDI-MUSIC/tree/master/GeezProject")
                 ],[
                     InlineKeyboardButton(
-                        "🎁 Donate", url=f"https://t.me/kemeemm")
+                        "🎁 Donate", url=f"https://t.me/kemeemm/32")
                 ]
             ]
         ),
