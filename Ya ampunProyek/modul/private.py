@@ -56,10 +56,10 @@ Ingin Menambahkan Saya ke Grup Anda? Tambahkan Saya Ke Group Anda!
                         "🎈 Group Support", url=f"https://t.me/{SUPPORT_GROUP}")
                 ],[
                     InlineKeyboardButton(
-                        "🛠 Source Code 🛠", url=f"https://https://github.com/fandi999/FANDI-MUSIC/tree/master/GeezProject")
+                        "🛠 Source Code 🛠", url=f"https://https://github.com/{SOURCE_CODE}")
                 ],[
                     InlineKeyboardButton(
-                        "🎁 Donate", url=f"https://t.me/kemeemm/32")
+                        "🎁 Donate", url=f"https://Vckyouuu/32")
                 ]
             ]
         ),
@@ -101,7 +101,7 @@ def map(pos):
             [InlineKeyboardButton("➕ Tambahkan saya ke Grup Anda ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
             [InlineKeyboardButton(text = '💬 Channel Updates', url=f"https://t.me/{UPDATES_CHANNEL}"),
              InlineKeyboardButton(text = '🔰 Group Support', url=f"https://t.me/{SUPPORT_GROUP}")],
-            [InlineKeyboardButton(text = '🛠 Source Code 🛠', url=f"https://https://github.com/fandi999/FANDI-MUSIC/tree/master/GeezProject")],
+            [InlineKeyboardButton(text = '🛠 Source Code 🛠', url=f"https://https://{SOURCE_CODE}")],
             [InlineKeyboardButton(text = '«', callback_data = f"help+{pos-1}")]
         ]
     else:
