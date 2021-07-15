@@ -38,7 +38,7 @@ Saya Memiliki Banyak Fitur Seperti :
 
 📌 Special Thanks To : {OWNER}
 
-Ingin Menambahkan Saya ke Grup Anda? Tambahkan Saya Ke Group Anda!(https://telegra.ph/file/7d1e7ec948e9119618f4f.jpg)
+Ingin Menambahkan Saya ke Grup Anda? Tambahkan Saya Ke Group Anda!=f"https://telegra.ph/file/7d1e7ec948e9119618f4f.jpg)]
 </b>""",
 
 # Edit Yang Seharusnya Lu Edit Aja:D
