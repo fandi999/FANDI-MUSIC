@@ -1,42 +1,36 @@
 # Daisyxmusic (Telegram bot project )
 # Copyright (C) 2021  Inukaasith
 
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU Affero General Public License as
-# published by the Free Software Foundation, either version 3 of the
-# License, or (at your option) any later version.
+# recode by levina-lab on github
+# originally rewritten by using existing code (fixed)
 
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU Affero General Public License for more details.
-#
-# You should have received a copy of the GNU Affero General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
+import asyncio
 
 from pyrogram import Client, filters
+from pyrogram.types import Dialog, Chat, Message
 from pyrogram.errors import UserAlreadyParticipant
-import asyncio
+
+from GeezProject.services.callsmusic.callsmusic import client as geez
 from GeezProject.config import SUDO_USERS
 
 @Client.on_message(filters.command(["gcast"]))
-async def bye(client, message):
-    if message.from_user.id in SUDO_USERS:
-        lol = await message.reply("`Globally Broadcasting Msg...`")
+async def broadcast(_, message: Message):
+    sent=0
+    failed=0
+    if message.from_user.id not in SUDO_USERS:
+        return
+    else:
+        wtf = await message.reply("`memulai global cast...`")
         if not message.reply_to_message:
-            await lol.edit("**Balas pesan teks apa pun untuk gcast**")
+            await wtf.edit("balas ke pesan untuk melakukan broadcast!")
             return
-        msg = message.reply_to_message.text
-        sent=0
-        failed=0
-        for dialog in client.iter_dialogs():
+        lmao = message.reply_to_message.text
+        async for dialog in geez.iter_dialogs():
             try:
-                await client.send_message(dialog.chat.id, msg)
-                sent += 1
-                await lol.edit(f"**Berhasil Mengirim Pesan Ke** `{sent}` **Grup, Gagal Mengirim Pesan Ke** `{failed}` **Grup**")
+                await geez.send_message(dialog.chat.id, lmao)
+                sent = sent+1
+                await wtf.edit(f"`global cast...` \n\n**mengirim ke:** `{sent}` obrolan \n**gagal di:** {failed} obrolan")
+                await asyncio.sleep(3)
             except:
-                failed += 1
-                await lol.edit(f"**Berhasil Mengirim Pesan Ke** `{sent}` **Grup, Gagal Mengirim Pesan Ke** `{failed}` **Grup**")
-            await asyncio.sleep(0.7)
-        await message.reply_text(f"**Mengirim Pesan Ke** `{sent}` **Grup, Gagal Mengirim Pesan Ke** `{failed}` **Grup**")
+                failed=failed+1
+        await message.reply_text(f"`gcast berhasil` \n\n**terkirim ke:** `{sent}` obrolan \n**gagal di:** {failed} obrolan")

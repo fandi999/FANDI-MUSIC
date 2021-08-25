@@ -47,10 +47,11 @@ from GeezProject.helpers.decorators import errors
 from GeezProject.helpers.decorators import authorized_users_only
 from GeezProject.helpers.filters import command, other_filters
 from GeezProject.helpers.gets import get_file_name
-from GeezProject.services.callsmusic import callsmusic, queues
+from GeezProject.services.callsmusic import callsmusic
 from GeezProject.services.callsmusic.callsmusic import client as USER
 from GeezProject.services.converter.converter import convert
 from GeezProject.services.downloaders import youtube
+from GeezProject.services.queues import queues
 
 aiohttpsession = aiohttp.ClientSession()
 chat_id = None
@@ -477,8 +478,11 @@ async def play(_, message: Message):
 
                 try:
                     await USER.join_chat(invitelink)
+                    await USER.send_message(
+                        message.chat.id, "I joined this group for playing music in VC"
+                    )
                     await lel.edit(
-                        f"<b>{user.first_name} berhasil bergabung dengan Group anda</b>",
+                        "<b>helper userbot joined your chat</b>",
                     )
 
                 except UserAlreadyParticipant:
@@ -597,19 +601,18 @@ async def play(_, message: Message):
         try:
           results = YoutubeSearch(query, max_results=5).to_dict()
         except:
-          await lel.edit("**Beri Judul Lagu untuk diputar**")
+          await lel.edit("**berikan judul lagu yang ingin kamu putar !**")
         # Looks like hell. Aren't it?? FUCK OFF
         try:
-            toxxt = "**Silahkan Pilih lagu yang ingin Anda Putar:**\n\n"
+            toxxt = "**__silahkan pilih lagu untuk diputar:__**\n\n"
             j = 0
             useer=user_name
             emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣",]
 
             while j < 5:
-                toxxt += f"{emojilist[j]} [{results[j]['title']}](https://youtube.com{results[j]['url_suffix']})\n"
-                toxxt += f" ├ **Duration** - {results[j]['duration']}\n"
-                toxxt += f" ├ **Views** - {results[j]['views']}\n"
-                toxxt += f" └ **Channel** - {results[j]['channel']}\n\n"
+                toxxt += f"{emojilist[j]} [{results[j]['title'][:25]}](https://youtube.com{results[j]['url_suffix']})\n"
+                toxxt += f" ├ 💡 **Duration** - {results[j]['duration']}\n"
+                toxxt += f" └ ⚡ __Powered by Geez Music Project__\n\n"
 
                 j += 1            
             koyboard = InlineKeyboardMarkup(
@@ -676,9 +679,10 @@ async def play(_, message: Message):
         qeue.append(appendable)
         await message.reply_photo(
             photo="final.png",
-            caption = f"🏷 **Judul:** [{title[:60]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Antrian Ke `{position}`\n" \
-                    + f"🎼 **Request Dari:** {message.from_user.mention}",
+            caption = f"🏷 **Judul:** [{title[:30]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Antrian Ke `{position}`\n" \
+                    + f"🎧 **Request Dari:** {message.from_user.mention}",
                    reply_markup=keyboard)
+       
     else:
         chat_id = get_chat_id(message.chat)
         que[chat_id] = []
@@ -695,8 +699,8 @@ async def play(_, message: Message):
             return
         await message.reply_photo(
             photo="final.png",
-            caption = f"🏷 **Judul:** [{title[:60]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Sedang Memutar\n" \
-                    + f"🎼 **Request Dari:** {message.from_user.mention}",
+            caption = f"🏷 **Judul:** [{title[:30]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Sedang Memutar\n" \
+                    + f"🎧 **Request Dari:** {message.from_user.mention}",
                    reply_markup=keyboard)
 
     os.remove("final.png")
@@ -739,8 +743,11 @@ async def ytplay(_, message: Message):
 
                 try:
                     await USER.join_chat(invitelink)
+                    await USER.send_message(
+                        message.chat.id, "I joined this group for playing music in VC"
+                    )
                     await lel.edit(
-                        f"<b>{user.first_name} berhasil bergabung dengan Group anda</b>",
+                        "<b>helper userbot joined your chat</b>",
                     )
 
                 except UserAlreadyParticipant:
@@ -814,8 +821,8 @@ async def ytplay(_, message: Message):
         qeue.append(appendable)
         await message.reply_photo(
             photo="final.png",
-            caption = f"🏷 **Judul:** [{title[:60]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Antrian Ke `{position}`\n" \
-                    + f"🎼 **Request Dari:** {message.from_user.mention}",
+            caption = f"🏷 **Judul:** [{title[:30]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Antrian Ke `{position}`\n" \
+                    + f"🎧 **Request Dari:** {message.from_user.mention}",
                    reply_markup=keyboard,
         )
         os.remove("final.png")
@@ -836,8 +843,8 @@ async def ytplay(_, message: Message):
             return
         await message.reply_photo(
             photo="final.png",
-            caption = f"🏷 **Judul:** [{title[:60]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Sedang Memutar\n" \
-                    + f"🎼 **Request Dari:** {message.from_user.mention}",
+            caption = f"🏷 **Judul:** [{title[:30]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Sedang Memutar\n" \
+                    + f"🎧 **Request Dari:** {message.from_user.mention}",
                    reply_markup=keyboard,)
         os.remove("final.png")
         return await lel.delete()
@@ -878,8 +885,11 @@ async def deezer(client: Client, message_: Message):
 
                 try:
                     await USER.join_chat(invitelink)
+                    await USER.send_message(
+                        message_.chat.id, "I joined this group for playing music in VC"
+                    )
                     await lel.edit(
-                        f"<b>{user.first_name} berhasil bergabung dengan Group anda</b>",
+                        "<b>helper userbot joined your chat</b>",
                     )
 
                 except UserAlreadyParticipant:
@@ -1047,8 +1057,8 @@ async def lol_cb(b, cb):
         await cb.message.delete()
         await b.send_photo(chat_id,
             photo="final.png",
-            caption = f"🏷 **Judul:** [{title[:60]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Antrian Ke `{position}`\n" \
-                    + f"🎼 **Request Dari:** {r_by.mention}",
+            caption = f"🏷 **Judul:** [{title[:30]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Antrian Ke `{position}`\n" \
+                    + f"🎧 **Request Dari:** {r_by.mention}",
                    reply_markup=keyboard,
         )
         os.remove("final.png")
@@ -1069,8 +1079,8 @@ async def lol_cb(b, cb):
         await cb.message.delete()
         await b.send_photo(chat_id,
             photo="final.png",
-            caption = f"🏷 **Judul:** [{title[:60]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Sedang Memutar\n" \
-                    + f"🎼 **Request Dari:** {r_by.mention}",
+            caption = f"🏷 **Judul:** [{title[:30]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Sedang Memutar\n" \
+                    + f"🎧 **Request Dari:** {r_by.mention}",
                     reply_markup=keyboard,
         )
         os.remove("final.png")
